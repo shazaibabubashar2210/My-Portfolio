@@ -9,13 +9,13 @@ const Hero = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
 
   return (
-    <section className='relative w-full min-h-[85vh] sm:h-screen mx-auto overflow-hidden'>
+    <section className='relative w-full sm:h-screen mx-auto overflow-hidden flex flex-col'>
       <div
-        className={`absolute inset-x-0 top-[88px] sm:top-[120px] bottom-24 sm:bottom-0 z-10 max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-center sm:items-start gap-3 sm:gap-5`}
+        className={`relative z-10 w-full max-w-7xl mx-auto ${styles.paddingX} pt-28 pb-6 sm:pt-[120px] sm:pb-0 sm:absolute sm:inset-x-0 sm:top-[120px] sm:bottom-0 flex flex-row items-start gap-3 sm:gap-5`}
       >
-        <div className='hidden xs:flex flex-col justify-center items-center mt-0 sm:mt-5'>
+        <div className='flex flex-col justify-center items-center mt-1 sm:mt-5 shrink-0'>
           <div className='w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 h-24 sm:h-80 violet-gradient' />
+          <div className='w-1 h-16 xs:h-24 sm:h-80 violet-gradient' />
         </div>
 
         <div className='flex-1 min-w-0'>
@@ -32,7 +32,7 @@ const Hero = () => {
               ]}
             />
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100 min-h-[3rem] sm:min-h-[4rem]`}>
+          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             {showSubtitle && (
               <Typewriter
                 speed={35}
@@ -53,7 +53,7 @@ const Hero = () => {
         <ComputersCanvas />
       </div>
 
-      <div className='absolute bottom-8 sm:bottom-10 z-10 w-full flex justify-center items-center'>
+      <div className='relative sm:absolute bottom-0 sm:bottom-10 z-10 w-full flex justify-center items-center py-6 sm:py-0 mt-auto'>
         <a href='#about'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div
