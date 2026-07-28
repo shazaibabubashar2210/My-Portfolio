@@ -53,13 +53,12 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      shadows
+      frameloop='demand'
       dpr={[1, 1.5]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{
         alpha: true,
         antialias: true,
-        preserveDrawingBuffer: true,
         powerPreference: "high-performance",
       }}
       onCreated={({ gl }) => {
