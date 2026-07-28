@@ -4,25 +4,19 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
-  reactjs,
-  redux,
-  tailwind,
+  angular,
+  sql,
   nodejs,
-  mongodb,
   git,
-  figma,
   docker,
+  figma,
   meta,
-  starbucks,
-  tesla,
   shopify,
   carrent,
   jobit,
   tripguide,
-  threejs,
 } from "../assets";
 
 export const navLinks = [
@@ -46,16 +40,28 @@ const services = [
     icon: web,
   },
   {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
+    title: ".NET Developer",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Front-End Developer",
+    icon: mobile,
+  },
+  {
+    title: "Database Developer",
     icon: creator,
+  },
+  {
+    title: "Full-Stack Developer",
+    icon: javascript,
+  },
+  {
+    title: "Enterprise Solutions",
+    icon: docker,
+  },
+  {
+    title: "UI/UX Developer",
+    icon: figma,
   },
 ];
 
@@ -73,98 +79,79 @@ const technologies = [
     icon: javascript,
   },
   {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
+    name: "ASP.NET Core",
     icon: nodejs,
   },
   {
-    name: "MongoDB",
-    icon: mongodb,
+    name: "Angular",
+    icon: angular,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "SQL Server",
+    icon: sql,
   },
   {
-    name: "git",
+    name: "Git",
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
+    name: "Docker",
     icon: docker,
   },
 ];
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
+    title: "Front-End Developer",
+    company_name: "Synavos Global — Johar Town, Lahore",
+    icon: web,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed and maintained responsive web pages using HTML5, CSS3, and Bootstrap, ensuring cross-browser compatibility and mobile responsiveness.",
+      "Implemented interactive UI features and enhanced user experience with jQuery for dynamic content and animations.",
+      "Optimized website performance by reducing load times and improving accessibility.",
+      "Worked in an Agile team environment, participating in sprint planning, code reviews, and daily stand-ups.",
+      "Improved UI consistency and reusability by creating custom reusable components using Bootstrap and CSS.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
+    title: "Associate Software Engineer",
+    company_name: "Enterprise & Academic Projects",
+    icon: backend,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "2021 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built full-stack applications using ASP.NET MVC, C#, and SQL Server for order management and business operations.",
+      "Developed the Alzheimer Disease Care Hub system using Firebase and .NET MVC to connect doctors, patients, and caregivers.",
+      "Created a SAP-integrated web portal for Green Appliances with Sales, Purchase, and Inventory modules.",
+      "Integrated Crystal Reports for business analytics and ensured real-time data flow across enterprise modules.",
     ],
   },
   {
     title: "Web Developer",
-    company_name: "Shopify",
+    company_name: "Green Appliances — Enterprise Portal",
     icon: shopify,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "2024 - 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed a web-based portal for managing business operations with SAP-integrated enterprise modules.",
+      "Designed and built Sales, Purchase, and Inventory modules for order processing, procurement, and stock management.",
+      "Integrated Crystal Reports to generate business insights, analytics, and operational reports.",
+      "Ensured smooth real-time data flow between modules for accurate inventory and transaction updates.",
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
+    title: "Full-Stack Developer (FYP)",
+    company_name: "Punjab University — Alzheimer Care Hub",
     icon: meta,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "2024 - 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built an Alzheimer Disease Care Hub system to connect doctors, patients, and caregivers in one platform.",
+      "Implemented the backend using ASP.NET MVC and C# with Firebase for real-time data storage and sync.",
+      "Designed user flows to simplify care coordination and improve accessibility for caregivers.",
+      "Delivered a complete final year project focused on healthcare management and user-centered design.",
     ],
   },
 ];
@@ -198,20 +185,20 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Green Appliances Portal",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Web-based enterprise portal for managing business operations with SAP-integrated Sales, Purchase, and Inventory modules, plus Crystal Reports for analytics and real-time data flow.",
     tags: [
       {
-        name: "react",
+        name: "aspnet",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "sqlserver",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "crystalreports",
         color: "pink-text-gradient",
       },
     ],
@@ -219,20 +206,20 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "Alzheimer Care Hub",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Final year project — an all-in-one care hub connecting doctors, Alzheimer patients, and caregivers, built with Firebase and ASP.NET MVC to simplify care coordination.",
     tags: [
       {
-        name: "react",
+        name: "firebase",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "aspnetmvc",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "csharp",
         color: "pink-text-gradient",
       },
     ],
@@ -240,20 +227,20 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Food Ordering System",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Full-stack food ordering application with ASP.NET MVC front-end and SQL Server backend for managing menus, orders, and customer data with real-time order processing.",
     tags: [
       {
-        name: "nextjs",
+        name: "csharp",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "aspnetmvc",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "sql",
         color: "pink-text-gradient",
       },
     ],

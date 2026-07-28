@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+import Typewriter from "./Typewriter";
 
 const Hero = () => {
+  const [showSubtitle, setShowSubtitle] = useState(false);
+
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
@@ -14,13 +18,33 @@ const Hero = () => {
           <div className='w-1 sm:h-80 h-40 violet-gradient' />
         </div>
 
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915EFF]'>Adrian</span>
+        <div className='flex-1 min-w-0'>
+          <h1 className={`${styles.heroHeadText} text-white break-words`}>
+            <Typewriter
+              speed={70}
+              onComplete={() => setShowSubtitle(true)}
+              segments={[
+                { text: "Hi, I'm ", className: "text-white" },
+                {
+                  text: "Shazaib AbuBashar",
+                  className: "text-[#915EFF]",
+                },
+              ]}
+            />
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className='sm:block hidden' />
-            interfaces and web applications
+          <p className={`${styles.heroSubText} mt-2 text-white-100 min-h-[3rem] sm:min-h-[4rem]`}>
+            {showSubtitle && (
+              <Typewriter
+                speed={35}
+                showCursor={false}
+                segments={[
+                  {
+                    text: "I develop web applications, user interfaces and enterprise solutions",
+                    className: "text-white-100",
+                  },
+                ]}
+              />
+            )}
           </p>
         </div>
       </div>
