@@ -15,14 +15,14 @@ const Computers = ({ isMobile }) => {
         angle={0.12}
         penumbra={1}
         intensity={1}
-        castShadow
+        castShadow={!isMobile}
         shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.55 : 0.75}
+        position={isMobile ? [0, -3.5, -2.5] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -33,7 +33,7 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const mediaQuery = window.matchMedia("(max-width: 639px)");
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
@@ -47,33 +47,34 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  if (isMobile) {
-    return null;
-  }
-
   return (
     <Canvas
-      shadows
-      dpr={[1, 1.5]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      shadows={!isMobile}
+      dpr={isMobile ? 1 : [1, 1.5]}
+      camera={{
+        position: isMobile ? [0, 2, 12] : [20, 3, 5],
+        fov: isMobile ? 35 : 25,
+      }}
       gl={{
         alpha: true,
-        antialias: true,
+        antialias: !isMobile,
         preserveDrawingBuffer: true,
         powerPreference: "high-performance",
       }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0);
       }}
-      style={{ background: "transparent" }}
+      style={{ background: "transparent", width: "100%", height: "100%" }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
+        {!isMobile && (
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+        )}
         <Computers isMobile={isMobile} />
       </Suspense>
 

@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import {
   Decal,
   Float,
-  OrbitControls,
   Preload,
   useTexture,
 } from "@react-three/drei";
@@ -40,12 +39,12 @@ const Ball = (props) => {
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 1.5]}
+      gl={{ alpha: true, preserveDrawingBuffer: true }}
+      onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
+      style={{ background: "transparent" }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
         <Ball imgUrl={icon} />
       </Suspense>
 
