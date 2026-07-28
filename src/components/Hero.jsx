@@ -5,9 +5,11 @@ import { styles } from "../styles";
 import { computerMobile } from "../assets";
 import { ComputersCanvas } from "./canvas";
 import Typewriter from "./Typewriter";
+import useIsMobile from "../hooks/useIsMobile";
 
 const Hero = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
+  const isMobile = useIsMobile();
 
   return (
     <section className='relative w-full sm:h-screen mx-auto overflow-hidden'>
@@ -50,37 +52,39 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Mobile: static computer image (3D WebGL is unstable on phones) */}
-      <div className='relative sm:hidden w-full px-4 pb-8 pt-2'>
-        <img
-          src={computerMobile}
-          alt='Developer computer setup'
-          className='w-full max-w-md mx-auto h-auto object-contain rounded-2xl'
-        />
-      </div>
+      {isMobile ? (
+        <div className='relative w-full px-4 pb-8 pt-2'>
+          <img
+            src={computerMobile}
+            alt='Developer computer setup'
+            className='w-full max-w-md mx-auto h-auto object-contain rounded-2xl'
+          />
+        </div>
+      ) : (
+        <div className='absolute inset-0 top-[120px] w-full h-[calc(100vh-120px)]'>
+          <ComputersCanvas />
+        </div>
+      )}
 
-      {/* Desktop/tablet: interactive 3D computer */}
-      <div className='hidden sm:block absolute inset-0 top-[120px] w-full h-[calc(100vh-120px)] pointer-events-none'>
-        <ComputersCanvas />
-      </div>
-
-      <div className='hidden sm:flex absolute bottom-10 z-10 w-full justify-center items-center'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
-          </div>
-        </a>
-      </div>
+      {!isMobile && (
+        <div className='absolute bottom-10 z-10 w-full flex justify-center items-center'>
+          <a href='#about'>
+            <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+              <motion.div
+                animate={{
+                  y: [0, 24, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+                className='w-3 h-3 rounded-full bg-secondary mb-1'
+              />
+            </div>
+          </a>
+        </div>
+      )}
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
@@ -30,36 +30,15 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(true);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 640px)");
-    setIsMobile(!mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(!event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
-  if (isMobile) {
-    return null;
-  }
-
   return (
     <Canvas
-      frameloop='demand'
-      dpr={[1, 1.5]}
+      shadows
+      dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{
         alpha: true,
         antialias: true,
-        powerPreference: "high-performance",
+        preserveDrawingBuffer: true,
       }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0);
@@ -69,14 +48,12 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          enablePan={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
         <Computers />
+        <Preload all />
       </Suspense>
-
-      <Preload all />
     </Canvas>
   );
 };
