@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
+import { computerMobile } from "../assets";
 import { ComputersCanvas } from "./canvas";
 import Typewriter from "./Typewriter";
 
@@ -11,7 +12,7 @@ const Hero = () => {
   return (
     <section className='relative w-full sm:h-screen mx-auto overflow-hidden'>
       <div
-        className={`relative z-10 w-full max-w-7xl mx-auto ${styles.paddingX} pt-24 pb-8 sm:absolute sm:inset-x-0 sm:top-[120px] sm:bottom-0 flex flex-row items-start gap-3 sm:gap-5`}
+        className={`relative z-10 w-full max-w-7xl mx-auto ${styles.paddingX} pt-24 pb-4 sm:absolute sm:inset-x-0 sm:top-[120px] sm:bottom-0 flex flex-row items-start gap-3 sm:gap-5`}
       >
         <div className='flex flex-col justify-center items-center mt-1 sm:mt-5 shrink-0'>
           <div className='w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#915EFF]' />
@@ -49,6 +50,16 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Mobile: static computer image (3D WebGL is unstable on phones) */}
+      <div className='relative sm:hidden w-full px-4 pb-8 pt-2'>
+        <img
+          src={computerMobile}
+          alt='Developer computer setup'
+          className='w-full max-w-md mx-auto h-auto object-contain rounded-2xl'
+        />
+      </div>
+
+      {/* Desktop/tablet: interactive 3D computer */}
       <div className='hidden sm:block absolute inset-0 top-[120px] w-full h-[calc(100vh-120px)] pointer-events-none'>
         <ComputersCanvas />
       </div>
