@@ -2,23 +2,22 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { computerMobile } from "../assets";
 import { ComputersCanvas } from "./canvas";
 import Typewriter from "./Typewriter";
-import useIsMobile from "../hooks/useIsMobile";
 
 const Hero = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
-  const isMobile = useIsMobile();
 
   return (
-    <section className='relative w-full sm:h-screen mx-auto overflow-hidden'>
+    <section className='relative w-full h-screen mx-auto overflow-hidden'>
+      {/* Text overlay */}
       <div
-        className={`relative z-10 w-full max-w-7xl mx-auto ${styles.paddingX} pt-24 pb-4 sm:absolute sm:inset-x-0 sm:top-[120px] sm:bottom-0 flex flex-row items-start gap-3 sm:gap-5`}
+        className={`relative z-10 w-full max-w-7xl mx-auto ${styles.paddingX} pt-24 pb-4 absolute inset-x-0 top-[120px] bottom-0 flex flex-row items-start gap-3 sm:gap-5 pointer-events-none`}
       >
+        {/* Purple dot + gradient accent line */}
         <div className='flex flex-col justify-center items-center mt-1 sm:mt-5 shrink-0'>
           <div className='w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 h-16 xs:h-24 sm:h-80 violet-gradient' />
+          <div className='w-1 h-20 xs:h-28 sm:h-80 violet-gradient' />
         </div>
 
         <div className='flex-1 min-w-0'>
@@ -52,39 +51,29 @@ const Hero = () => {
         </div>
       </div>
 
-      {isMobile ? (
-        <div className='relative w-full px-4 pb-8 pt-2'>
-          <img
-            src={computerMobile}
-            alt='Developer computer setup'
-            className='w-full max-w-md mx-auto h-auto object-contain rounded-2xl'
-          />
-        </div>
-      ) : (
-        <div className='absolute inset-0 top-[120px] w-full h-[calc(100vh-120px)]'>
-          <ComputersCanvas />
-        </div>
-      )}
+      {/* 3D Canvas — shown on all screen sizes */}
+      <div className='absolute inset-0 top-[120px] w-full h-[calc(100vh-120px)]'>
+        <ComputersCanvas />
+      </div>
 
-      {!isMobile && (
-        <div className='absolute bottom-10 z-10 w-full flex justify-center items-center'>
-          <a href='#about'>
-            <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-              <motion.div
-                animate={{
-                  y: [0, 24, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                className='w-3 h-3 rounded-full bg-secondary mb-1'
-              />
-            </div>
-          </a>
-        </div>
-      )}
+      {/* Scroll indicator — shown on all screens */}
+      <div className='absolute bottom-10 z-10 w-full flex justify-center items-center'>
+        <a href='#about'>
+          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+            <motion.div
+              animate={{
+                y: [0, 24, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className='w-3 h-3 rounded-full bg-secondary mb-1'
+            />
+          </div>
+        </a>
+      </div>
     </section>
   );
 };

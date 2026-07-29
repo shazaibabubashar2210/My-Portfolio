@@ -6,11 +6,9 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import useIsMobile from "../hooks/useIsMobile";
 
 const Contact = () => {
   const formRef = useRef();
-  const isMobile = useIsMobile();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -125,14 +123,12 @@ const Contact = () => {
         </form>
       </motion.div>
 
-      {!isMobile && (
-        <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-        >
-          <EarthCanvas />
-        </motion.div>
-      )}
+      <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+      >
+        <EarthCanvas />
+      </motion.div>
     </div>
   );
 };
