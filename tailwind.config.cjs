@@ -17,6 +17,9 @@ module.exports = {
       },
       screens: {
         xs: "450px",
+        landscape: {
+          raw: "(orientation: landscape) and (max-height: 500px)",
+        },
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",

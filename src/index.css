@@ -238,3 +238,38 @@
     font-size: 12px;
   }
 }
+
+/* Landscape phone / short height layouts */
+@media (orientation: landscape) and (max-height: 500px) {
+  .landscape-hero {
+    min-height: 100dvh;
+  }
+
+  .hash-span {
+    margin-top: -60px;
+    padding-bottom: 60px;
+  }
+
+  .experience-timeline .vertical-timeline-element-content {
+    margin-left: 52px;
+    padding: 0.75em;
+  }
+}
+
+/* Smooth image rendering */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

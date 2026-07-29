@@ -29,8 +29,8 @@ const Navbar = () => {
     <nav
       className={`${
         styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+      } w-full flex items-center py-3 sm:py-5 landscape:py-2 fixed top-0 z-20 transition-colors duration-300 ${
+        scrolled ? "bg-primary/95 backdrop-blur-sm" : "bg-transparent"
       }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
@@ -42,11 +42,11 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <img src={logo} alt='logo' className='w-8 h-8 sm:w-9 sm:h-9 object-contain' />
           <p className='text-white text-[13px] sm:text-[16px] md:text-[18px] font-bold cursor-pointer'>
-            <span className='sm:hidden'>Shazaib</span>
-            <span className='hidden sm:inline'>Shazaib AbuBashar</span>
-            <span className='hidden md:inline'>&nbsp;| DOT NET Devloper</span>
+            <span className='md:hidden'>Shazaib</span>
+            <span className='hidden md:inline'>Shazaib AbuBashar</span>
+            <span className='hidden lg:inline'>&nbsp;| DOT NET Devloper</span>
           </p>
         </Link>
 

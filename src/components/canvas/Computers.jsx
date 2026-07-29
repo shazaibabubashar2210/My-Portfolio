@@ -33,12 +33,12 @@ const ComputersCanvas = () => {
   return (
     <Canvas
       shadows
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{
         alpha: true,
         antialias: true,
-        preserveDrawingBuffer: true,
+        powerPreference: "high-performance",
       }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0);

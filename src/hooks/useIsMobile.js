@@ -1,22 +1,6 @@
-import { useEffect, useState } from "react";
+import useMediaQuery from "./useMediaQuery";
 
-const useIsMobile = (maxWidth = 639) => {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia(`(max-width: ${maxWidth}px)`).matches;
-  });
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(`(max-width: ${maxWidth}px)`);
-    setIsMobile(mediaQuery.matches);
-
-    const handleChange = (event) => setIsMobile(event.matches);
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [maxWidth]);
-
-  return isMobile;
-};
+const useIsMobile = (maxWidth = 767) =>
+  useMediaQuery(`(max-width: ${maxWidth}px)`);
 
 export default useIsMobile;
